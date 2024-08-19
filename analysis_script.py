@@ -3,8 +3,14 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.ticker as ticker
 
+
+# Get the absolute path to the CSV file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(current_dir, 'top_videos.csv')
+
+
 # Load the CSV file into a DataFrame
-df = pd.read_csv('top_videos.csv')
+df = pd.read_csv('file_path')
 
 # Group by channel and sum the view counts
 channel_views = df.groupby('Channel')['Views'].sum().reset_index()
