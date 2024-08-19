@@ -10,7 +10,7 @@ file_path = os.path.join(current_dir, 'top_videos.csv')
 
 
 # Load the CSV file into a DataFrame
-df = pd.read_csv('file_path')
+df = pd.read_csv('/workspaces/Youtube_10_popular_count/top_videos.csv')
 
 # Group by channel and sum the view counts
 channel_views = df.groupby('Channel')['Views'].sum().reset_index()
