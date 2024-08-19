@@ -8,9 +8,12 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(current_dir, 'top_videos.csv')
 
+# Check if the file exists
+if not os.path.exists(file_path):
+    raise FileNotFoundError(f"Could not find the file at: {file_path}")
 
 # Load the CSV file into a DataFrame
-df = pd.read_csv('/workspaces/Youtube_10_popular_count/top_videos.csv')
+df = pd.read_csv(file_path)
 
 # Group by channel and sum the view counts
 channel_views = df.groupby('Channel')['Views'].sum().reset_index()
@@ -38,5 +41,6 @@ formatter = ticker.FuncFormatter(lambda x, pos: f'{int(x/1000)}k')
 plt.gca().xaxis.set_major_formatter(formatter)
 
 # Show the plot and save it
-plt.savefig('views_by_channel.png')
+output_file_path = os.path.join(current_dir, 'views_by_channel.png')
+plt.savefig(output_file_path)
 plt.show()
