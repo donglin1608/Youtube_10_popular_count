@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.ticker as ticker
-
+import os
 
 # Get the absolute path to the CSV file
 current_dir = os.path.dirname(os.path.abspath(__file__))
